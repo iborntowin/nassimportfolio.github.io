@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Welcome to My Portfolio😄">
+	<div class="full">
+		<main>
+			<h1 class="welcome">Welcome to <span class="text-gradient">My Portfolio</span></h1>
+			<br><br><br>
+			<ul role="list" class="link-card-grid">
+				<Card
+					href="/terminal"
+					title="Try the terminal"
+					body="Explore my website via Terminal like a boss 😎"
+				/>
+				<Card
+					href="/about"
+					title="About"
+					body="Learn more about me 😄"
+				/>
+				<Card
+					href="/skills"
+					title="Skills"
+					body="What am I good at 💪"
+				/>
+				<Card
+					href="/contact"
+					title="Contact Me"
+					body="Don't hesitate, I'm always here for you 🫡"
+				/>
+			</ul>
+		</main>
+	</div>
+	
+</Layout>
+
+<style>
+	 :root {
+    --accent: 10, 80, 0;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #78C475 30%, white 30%);
+  }
+	.full{
+		margin-top: 4%;
+		padding: 0;
+		height: 100%;
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 2rem;
+		color: #000;
+		border: 80px solid rgb(var(--accent-gradient)); /* Add a border around the content */
+		border-radius: 10px; /* Rounded corners for the border */
+		background-color: rgba(255, 255, 255, 0.9);
+		box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+	}
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.welcome {
+		text-align: center;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		max-width: 20ch;
+		line-height: 1.6;
+		margin: 2rem auto;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+		text-align: center;
+	}
+	
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1.5rem;
+		padding: 0;
+		margin: 0 auto;
+		margin-top: 10%;
+	}
+	@media (max-width: 768px) {
+		.welcome {
+			font-size: 2rem;
+			margin-left: 0;
+		}
+		.instructions {
+			max-width: 100%;
+		}
+	}
+	
+</style>

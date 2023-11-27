@@ -1,0 +1,106 @@
+---
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<astro-fragment>
+  <li class="link-card">
+    <a href={href}>
+      <div class="card-content">
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </div>
+    </a>
+  </li>
+
+  <style>
+    .link-card {
+      list-style: none;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      background-color: #f8f8f8;
+      max-width: 300px; /* Adjusted maximum width */
+      margin: auto;
+    }
+
+    .link-card > a {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+    }
+
+    .card-content {
+      text-align: left;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin: 0;
+      color: #555;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .animated.pulse {
+      animation: bounce 1s infinite;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 0.9rem;
+      }
+      p {
+        font-size: 0.7rem;
+      }
+      li {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+
+  <script>
+    const cards = document.querySelectorAll('.link-card');
+
+    cards.forEach(card => {
+      let bounceCount = 0;
+
+      card.addEventListener('mouseover', () => {
+        if (bounceCount < 3) {
+          card.classList.add('animated', 'pulse');
+          bounceCount++;
+        }
+      });
+
+      card.addEventListener('mouseout', () => {
+        card.classList.remove('animated', 'pulse');
+      });
+    });
+  </script>
+</astro-fragment>

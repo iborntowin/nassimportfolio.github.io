@@ -1,0 +1,28 @@
+---
+import arrow from "../components/curved_arrow.png";
+---
+<astro-fragment>
+    <div class="flip-element">
+      <span class="flip-text">Flip</span>
+      <img src={arrow}  width="100">
+      <span class="arrow-down"></span>
+    </div>
+    
+    <style>
+      
+      .flip-element {
+        display: flex;
+        align-items:top;
+        justify-content: right;
+        background-color: #fff;
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+  
+      .flip-text {
+        font-size: 1.8rem;
+        margin-right: 0.5rem;
+      }
+    </style>
+  </astro-fragment>
+  

@@ -1,0 +1,195 @@
+---
+import src from "../components/dlynkcle_021.png";
+import face from "../components/facebook.png";
+import inst from "../components/instagram.png";
+import linke from "../components/linkedin.png";
+import ema from "../components/email.png";
+import Layout from '../layouts/Layout.astro';
+
+
+---
+ <astro-fragment>
+        <li class="link-card">
+        <div class="card">
+            <div class="card-inner">
+            <div class="card-front">
+                <div class="card-content">
+                <h2>Maaoui Nassim</h2>
+                    <img src={src}  width="80">
+                    <p id="ff">flip me</p>
+                </div>
+                
+            </div>
+            <div class="card-back">
+                <div class="card-content-back">
+                <h2  user-select:none>Maaoui Nassim</h2>
+<div class="righter">
+     <p>Phone +216 53401531</p>
+                <p><a href="mailto:nassim28maaoui@gmail.com"><img src={ema}  width="20">nassim28maaoui@gmail.com</a></p> 
+                <a href="https://www.linkedin.com/in/maaoui-nassim-1a5636279/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;"><img src={linke}  width="20">Linkedin</a><br>
+                <a href="https://www.facebook.com/" target="_blank"  rel="noopener noreferrer" style="text-decoration: none; color: inherit;"><img src={face}  width="20">Facebook Link</a><br>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;"><img src={inst}  width="20">Instagram Link</a><br>
+                </div>
+                
+            </div>
+            </div>
+            </div>
+        </div>
+        </li>
+    
+        <style>
+            #ff{
+                margin-left: 65rem;
+            }
+            .link-card {
+            list-style: none;
+            padding: 10rem; 
+            border-radius: 0.75rem;
+            transition: transform 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            background-color: #f8f8f8;
+            perspective: 1050px; 
+            }
+            .righter  {
+                margin-top: 2rem;
+                text-align: left;
+                font-size:30px
+            }
+            .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin-top: -5rem;
+            transform-style: preserve-3d;
+            }
+            
+            .card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s; 
+            }
+            
+            .card-front,
+            .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            }
+            
+            .card-front {
+            transform: rotateY(0deg);
+            }
+            
+            .card-back {
+            transform: rotateY(180deg);
+            }
+            
+            .card-content{
+                text-align: center;
+            }
+            .card-content-back {
+                
+            text-align: center;
+            }
+            
+            h2 {
+            margin-top: -3.5rem; 
+            font-size: 2rem
+            color: #222;
+            margin-bottom: 0.5rem;
+            }
+            a{
+                font-size: 1.2rem; 
+            }
+            p {
+            margin: 0;
+            font-size: 1.2rem; 
+            color: #555;
+            }
+            
+            .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 0 50px rgba(0, 0, 0, 0.1),
+                0 0 90px rgba(10, 0, 0, 0.1),
+                0 0 90px rgba(10, 80, 0, 0.2),
+                0 0 90px rgba(10, 80, 0, 0.2);
+            background-color:0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); 
+            
+            }
+            
+            
+            .card-inner {
+            transform: rotateY(180deg);
+            }
+            .card-inner:not(.flipped) {
+            animation: flip 0.6s ease-in-out;
+            }
+            .card-inner.flipped {
+            transform: rotateY(180deg);
+            transition: transform 0.6s ease-in-out;
+            }
+            
+            
+            @media (max-width: 600px) {
+            h2 {
+            font-size: 1.5rem;
+            }
+            p {
+            font-size: 1rem;
+            }
+            li {
+            padding: 2rem;
+            }
+            }
+            
+            @keyframes flip {
+            from {
+            transform: rotateY(0deg);
+            }
+            to {
+            transform: rotateY(180deg);
+            }
+            }
+            :root {
+    --accent: 10, 80, 0;
+    --accent-gradient: linear-gradient(135deg, rgb(var(--accent)), #78C475 50%, white 100%);
+    /* ... Other styles ... */
+  }
+            </style>
+    
+        <script>
+        const cards = document.querySelectorAll('.link-card');
+    
+        cards.forEach(card => {
+            let flipped = false;
+            
+            card.addEventListener('mouseover', () => {
+            if (!flipped) {
+                card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+                flipped = true;
+                
+            }
+            });
+            card.addEventListener('mouseout', () => {
+            if (flipped) {
+                card.querySelector('.card-inner').style.transform = 'rotateY(0deg)';
+                flipped = false;
+            }
+            });
+        });
+       /* const flipElement = document.querySelector('.link-card');
+const bodyElement = document.querySelector('body');
+
+flipElement.addEventListener('mouseover', () => {
+  bodyElement.style.background = 'var(--accent-gradient)';
+});
+
+flipElement.addEventListener('mouseout', () => {
+  bodyElement.style.background = '';
+}); */ 
+        </script>
+    </astro-fragment>

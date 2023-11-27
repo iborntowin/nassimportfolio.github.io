@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Z from '../components/Z.astro';
+
+---
+
+<Layout title="Web Development">
+  <main>
+	<section class="webdev-section">
+		<h1 class="welcome"><span class="text-gradient">Rate My Website</span></h1>
+		<div class="rating-section">
+		  <div class="rating-stars">
+			<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+			<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+			<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+			<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+			<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+		  </div>
+		</div>
+	  </section>
+    <div class="home"><Z 
+		href="/"
+		title="Home"
+		body="Ready to take the first step?"
+	  /></div>
+  </main>
+</Layout>
+
+<style>
+	.home{
+		margin-top:10rem ;
+	}
+ main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+		margin-top: 4rem;
+	}
+	.welcome {
+		text-align: center;
+	}
+	.text-gradient {
+		background-image: linear-gradient(45deg, rgba(var(--accent), 1), #78C475 30%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+		animation: gradient 10s infinite linear;
+	}
+	@keyframes gradient {
+		0% {
+			background-position: 0%;
+		}
+		100% {
+			background-position: 400%;
+		}
+	}
+	.instructions {
+		max-width: 20ch;
+		line-height: 1.6;
+		margin: 2rem auto;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+		text-align: center;
+	}
+	
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1.5rem;
+		padding: 0;
+		margin: 0 auto;
+		margin-top: 10%;
+	}
+	@media (max-width: 768px) {
+		.welcome {
+			font-size: 2rem;
+			margin-left: 0;
+		}
+		.instructions {
+			max-width: 100%;
+		}
+	}
+
+  .rating-section {
+	margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .rating-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .rating-stars {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    transition: color 0.3s;
+    margin: 0 0.2rem;
+  }
+
+  .rating-stars label:before {
+    content: '☆';
+    color: rgba(var(--accent), 0.5);
+    transition: color 0.3s;
+  }
+
+  input[type="radio"]:checked ~ label:before {
+    content: '★';
+    color: rgba(var(--accent), 1);
+  }
+
+  .rating-stars {
+    direction: rtl;
+  }
+
+  .rating-stars input[type="radio"]:nth-child(5):checked ~ label:before {
+    order: -1;
+  }
+  
+</style>
+

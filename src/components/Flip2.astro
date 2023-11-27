@@ -1,0 +1,41 @@
+---
+import src from "../components/dlynkcle_021.png";
+import face from "../components/facebook.png";
+import inst from "../components/instagram.png";
+import linke from "../components/linkedin.png";
+import ema from "../components/email.png";
+import Layout from '../layouts/Layout.astro';
+
+
+---
+<astro-fragment>
+    <li class="link-card">
+      <div class="card">
+          <div class="contact-info">
+            <p>Phone +216 53401531</p>
+            <p><a href="mailto:nassim28maaoui@gmail.com">nassim28maaoui@gmail.com</a></p>
+            <a href="https://www.linkedin.com/in/maaoui-nassim-1a5636279/" target="_blank" rel="noopener noreferrer"><img src={linke} width="20" alt="LinkedIn"></a><br>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src={face} width="20" alt="Facebook"></a><br>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src={inst} width="20" alt="Instagram"></a><br>
+
+        </div>
+      </div>
+    </li>
+  
+    <style>
+      /* Your existing styles here */
+      @media (max-width: 600px) {
+        h2 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+        li {
+          padding: 2rem;
+        }
+        /* Additional styles for mobile */
+      }
+    </style>
+  </astro-fragment>
+  

@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Z from '../components/Z.astro';
+import hide from "../components/5.png";
+import note from "../components/notenote.png";
+import ele from "../components/1.png";
+import Pic from "../components/pic.astro";
+import cv from "../components/Maaoui Nassim_5.pdf";
+import notet from "../components/notet.png";
+
+
+
+const skills = [
+  { language: 'Python', rating: 80 },
+  { language: 'Java', rating: 60 },
+  { language: 'C++', rating: 75 },
+  { language: 'C#', rating: 65 },
+  { language: '.NET', rating: 70 },
+  { language: 'Excel', rating: 85 },
+];
+
+---
+
+<Layout title="My Skills">
+  <main>
+    <!-- My Skills Section -->
+    <h1 class="welcome"><span class="text-gradient">My Skills</span></h1>
+    <div class="content">
+      <div class="link-card-grid">
+        <Card
+        href="#language"
+        title="Programming Languages"
+        body="Skilled in languages such as Python, Java, and C++."
+      />
+      <Card
+          href="#ui-ux-design" 
+          title="Desktop apps"
+          body="Experienced in creating user-centered designs and interactive interfaces."
+        />
+        <Card
+          href="/WebDevelopment"
+          title="Web Development"
+          body="Proficient in HTML, CSS, JavaScript, and various web frameworks."
+        />
+        <Card
+         href={cv}
+         title="Download my CV"
+         body="Get a copy of my CV to learn more about my qualifications and experiences."
+        />
+
+      </div>
+      <br /><Z 
+      href="/"
+      title="Home"
+      body="Ready to take the first step?"
+      />
+      
+    </div>
+
+    <section id="language" class="skills-section" >
+      <h1 class="welcome" class="section-title"><span class="text-gradient">Programming Languages</span></h1>
+      <div class="skills-grid">
+        {skills.map((skill) => (
+          <div class="skill-card">
+            <h2>{skill.language}</h2>
+            <div class="progress-bar">
+              <div class="progress" style={{ width: `${skill.rating}%` }}>
+                {skill.rating}%
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  
+  </main>
+</Layout>
+
+<style>
+  a{
+    text-decoration: none;
+    color: #000;
+    font-size: 2rem ;
+  }
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .final-card {
+    margin-top: 3rem;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .welcome {
+    margin-left: 2rem;
+    text-align: center;
+  }
+  .instructions {
+    max-width: 30ch;
+    line-height: 1.6;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  .content {
+    margin: 0 auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1.5rem;
+    margin-top: 10%;
+  }
+
+  .skills-section {
+    text-align: center;
+    margin-top: 8rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background-color: white;
+    border-radius: 0.6rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    padding: 3rem;
+    box-sizing: border-box;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .progress-bar {
+    background-color: #f0f0f0;
+    height: 1.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .progress {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5rem;
+    transition: width 1s;
+  }
+
+  @media (max-width: 768px) {
+    .link-card-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .skills-section {
+      margin-top: 4rem;
+    }}
+</style>
+
+<Layout title="My Desktop Apps">
+  <main class="des">
+    <section id="ui-ux-design">
+    <h1 class="welcome">Check Out <span class="text-gradient">My Desktop Apps</span></h1>
+    <p class="instructions"><strong>Explore</strong> and download my desktop applications</p>
+    <ul role="list" class="link-card-grid">
+      <Pic
+        href="https://secure.ue.internxt.com/sh/file/ea718575b5ab000c79c2/5a5877f51147bf194c78a0daee7bff609e8dc24170c027d3f309b927c19b8e94"
+        title="App 1"
+        body="Description of App 1"
+        src={ele}
+      />
+      <Pic
+        href="https://secure.ue.internxt.com/sh/file/4a29bc4ace92090e75b9/829b9fa1ed636d3a549d7503b6fa013d3ebcd5e4c6ec4c97d828f651deed7de6"
+        title="App 2"
+        body="Description of App 2"
+        src={hide}
+      />
+      <Pic
+        href="https://secure.ue.internxt.com/sh/file/4a29bc4ace92090e75b9/829b9fa1ed636d3a549d7503b6fa013d3ebcd5e4c6ec4c97d828f651deed7de6"
+        title="App 3"
+        body="Description of App 3"
+        src={note}
+      />
+      <Pic
+        href="https://secure.ue.internxt.com/sh/file/4a29bc4ace92090e75b9/829b9fa1ed636d3a549d7503b6fa013d3ebcd5e4c6ec4c97d828f651deed7de6"
+        title="App 4"
+        body="Description of App 4"
+        src={notet}
+      />
+    </ul>   
+  </section>
+  </main>
+</Layout>
+
+
+
+<style>
+  .des{
+    margin: 8% auto;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 2rem;
+  }
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  /* ... rest of your styles for Desktop Apps section ... */
+
+  @media (max-width: 768px) {
+    /* Your responsive styles for Desktop Apps section */
+  }
+</style>

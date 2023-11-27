@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Flip from "../components/Flip.astro";
+import Flipe from "../components/Flip2.astro";
+import Arrow from "../components/arrow.astro";
+import Z from '../components/Z.astro';
+---
+
+<Layout title="Contact">
+  <main>
+    <h1 class="welcome">
+      <span class="text-gradient">
+        <div id="content">
+          <div class="desktop-component">
+            <Flip id="flip" />
+          </div>
+          <div class="mobile-component">
+            <Flipe id="flipe" />
+          </div>
+        </div>
+      </span>
+    </h1>
+    <Z
+      href="/"
+      title="Home"
+      body="Go back to the home page"
+    />
+  </main>
+  <style>
+    h1 {
+      margin-top: 10rem;
+    }
+    main {
+      margin: auto;
+      padding: 0.1px;
+      width: 100%;
+      height: 190%;
+    }
+    
+    /* Show/hide components based on screen size */
+    .desktop-component {
+      display: block;
+    }
+
+    .mobile-component {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .desktop-component {
+        display: none;
+      }
+
+      .mobile-component {
+        display: block;
+      }
+    }
+
+  </style>
+</Layout>

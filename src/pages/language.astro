@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Z from '../components/Z.astro';
+
+const skills = [
+  { language: 'Python', rating: 80 },
+  { language: 'Java', rating: 60 },
+  { language: 'C++', rating: 75 },
+  { language: 'C#', rating: 65 },
+  { language: '.NET', rating: 70 },
+  { language: 'Excel', rating: 85 },
+];
+
+---
+
+<Layout title="Programming Languages">
+  <main>
+    <section class="skills-section">
+      <h1 class="section-title">Programming Languages</h1>
+      <div class="skills-grid">
+        {skills.map((skill) => (
+          <div class="skill-card">
+            <h2>{skill.language}</h2>
+            <div class="progress-bar">
+              <div class="progress" style={{ width: `${skill.rating}%` }}>
+                {skill.rating}%
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <Z
+		href="/"
+		title="Home"
+		body="Go back to the home page"/>
+			
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 2rem;
+    max-width: 800px;
+  }
+
+  .skills-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background-color: white;
+    border-radius: 0.6rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    padding: 3rem;
+    box-sizing: border-box;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .progress-bar {
+    background-color: #f0f0f0;
+    height: 1.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .progress {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50; /* Adjust the color here */
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5rem;
+    transition: width 1s;
+  }
+</style>

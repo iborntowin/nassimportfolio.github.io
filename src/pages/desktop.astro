@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/pic.astro';
+import ele from "../components/1.png";
+import Z from '../components/Z.astro';
+import hide from "../components/5.png";
+---
+
+<Layout title="My Desktop Apps">
+	<main>
+		<h1 class="welcome">Check Out <span class="text-gradient">My Desktop Apps</span></h1>
+		<p class="instructions"><strong>Explore</strong> and download my desktop applications</p>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="https://secure.ue.internxt.com/sh/file/ea718575b5ab000c79c2/5a5877f51147bf194c78a0daee7bff609e8dc24170c027d3f309b927c19b8e94"
+				title="App 1"
+				body="Description of App 1"
+				src={ele}
+			/>
+			<Card
+				href="https://secure.ue.internxt.com/sh/file/4a29bc4ace92090e75b9/829b9fa1ed636d3a549d7503b6fa013d3ebcd5e4c6ec4c97d828f651deed7de6"
+				title="App 2"
+				body="Description of App 2"
+				src={hide}
+			/>
+		</ul>
+        <ul><Z
+            href="/"
+            title="Home"
+            body="Go back to the home page"
+              /></ul>
+         
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.welcome {
+		text-align: center;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+  max-width: 50ch; /* Adjust the max-width as needed */
+  line-height: 1.6;
+  margin: 2rem auto;
+  border: 1px solid rgba(var(--accent), 25%);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  text-align: center;
+}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1.5rem;
+		padding: 0;
+		margin: 0 auto;
+		margin-top: 10%;
+	}
+
+	@media (max-width: 768px) {
+		.welcome {
+			font-size: 2rem;
+			margin-left: 0;
+		}
+		.instructions {
+			max-width: 100%;
+		}
+	}
+</style>
